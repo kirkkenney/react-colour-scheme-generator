@@ -1,0 +1,30 @@
+.list-display-container {
+    width: 100%;
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+}
+
+.colour-item {
+    flex-grow: 1;
+    margin: 0;
+    padding: .5rem 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.colour-item-text p {
+    margin: .3rem auto;
+    opacity: 0;
+}
+
+.colour-item:hover .colour-item-text p {
+    opacity: 1;
+}
