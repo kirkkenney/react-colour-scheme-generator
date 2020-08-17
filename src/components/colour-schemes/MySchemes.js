@@ -28,7 +28,7 @@ const MySchemes = () => {
             )}
             {storedSchemeState && (
                 storedSchemeState.map(scheme => {
-                    return <ScreenColourDisplay primary={scheme.primary} secondary={scheme.secondary} accent={scheme.accent} id={scheme.name} savedScheme deleteScheme={deleteSchemeHandler} name={scheme.name} key={scheme.name} />
+                    return <ScreenColourDisplay primary={scheme.primary} secondary={scheme.secondary} accent={scheme.accent} id={scheme.name} secondaryAccent={scheme.secondaryAccent ? scheme.secondaryAccent : null} savedScheme deleteScheme={deleteSchemeHandler} name={scheme.name} key={scheme.name} />
                 })
             )}
         </React.Fragment>

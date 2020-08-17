@@ -3,6 +3,7 @@ import ListColourDisplay from '../ui/ListColourDisplay';
 import { HSLToRGB } from '../../util/HslToRgb';
 import { HSLToHex } from './../../util/HslToHex';
 import ScreenColourDisplay from '../ui/ScreenColourDisplay';
+import { permute } from './../../util/PermuteScheme';
 
 const Monochrome = props => {
 
@@ -10,7 +11,7 @@ const Monochrome = props => {
 
     const colour1 = (l + 33) % 100;
     const colour2 = (l + 66) % 100;
-    const colours = [
+    const originalColours = [
         {
             hsl: `hsl(${h}, ${s}%, ${l}%)`,
             rgb: HSLToRGB(h, s, l),
@@ -28,38 +29,22 @@ const Monochrome = props => {
         }
     ]
 
+    const colours = permute(originalColours)
+
     return (
         <React.Fragment>
-            <ListColourDisplay colours={colours} />
+            <ListColourDisplay colours={originalColours} />
 
             <div className='screen-display-container' style={{marginTop: '5rem'}}>
-                <ScreenColourDisplay primary={colours[0].hsl} secondary={colours[1].hsl} accent={colours[2].hsl} />
-                
-                <ScreenColourDisplay primary={colours[1].hsl} secondary={colours[2].hsl} accent={colours[0].hsl} />
-                
-                <ScreenColourDisplay primary={colours[2].hsl} secondary={colours[0].hsl} accent={colours[1].hsl} />
-                
-                <ScreenColourDisplay primary={colours[2].hsl} secondary={colours[1].hsl} accent={colours[0].hsl} />
-                
-                <ScreenColourDisplay primary={colours[1].hsl} secondary={colours[0].hsl} accent={colours[2].hsl} />
-                
-                <ScreenColourDisplay primary={colours[0].hsl} secondary={colours[2].hsl} accent={colours[1].hsl} />
-                
-                <ScreenColourDisplay primary='rgb(225, 225, 225)' secondary={colours[0].hsl} accent={colours[1].hsl} />
-
-                <ScreenColourDisplay primary='rgb(225, 225, 225)' secondary={colours[1].hsl} accent={colours[0].hsl} />
-
-                <ScreenColourDisplay primary='rgb(225, 225, 225)' secondary={colours[0].hsl} accent={colours[2].hsl} />
-
-                <ScreenColourDisplay primary='rgb(225, 225, 225)' secondary={colours[2].hsl} accent={colours[0].hsl} />
-             
-                <ScreenColourDisplay primary='rgb(40, 40, 40)' secondary={colours[0].hsl} accent={colours[1].hsl} />
-
-                <ScreenColourDisplay primary='rgb(40, 40, 40)' secondary={colours[1].hsl} accent={colours[0].hsl} />
-
-                <ScreenColourDisplay primary='rgb(40, 40, 40)' secondary={colours[0].hsl} accent={colours[2].hsl} />
-
-                <ScreenColourDisplay primary='rgb(40, 40, 40)' secondary={colours[2].hsl} accent={colours[0].hsl} />
+                {colours.map(colour => {
+                    return (
+                        <div key={JSON.stringify(colour)}>
+                            <ScreenColourDisplay primary={colour[0].rgb} secondary={colour[1].rgb} accent={colour[2].rgb} />
+                            <ScreenColourDisplay primary='rgb(225, 225, 225)' secondary={colour[1].rgb} accent={colour[2].rgb} />
+                            <ScreenColourDisplay primary='rgb(30, 30, 30)' secondary={colour[1].rgb} accent={colour[2].rgb} />
+                        </div>
+                    )
+                })}
             </div>
 
         </React.Fragment>

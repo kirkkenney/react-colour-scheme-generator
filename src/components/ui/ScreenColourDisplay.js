@@ -3,7 +3,7 @@ import './ScreenColourDisplay.css'
 
 const ScreenColourDisplay = props => {
 
-    const {primary, secondary, accent } = props;
+    const {primary, secondary, accent, secondaryAccent } = props;
     const [savedScheme, setSavedScheme] = useState(!!props.savedScheme)
 
     const schemeStorageHandler = () => {
@@ -12,7 +12,8 @@ const ScreenColourDisplay = props => {
                 name: new Date().getTime(),
                 primary,
                 secondary,
-                accent
+                accent,
+                secondaryAccent: secondaryAccent ? secondaryAccent : null
             }
             let storage = localStorage.getItem('colour-schemes');
             let initStorage;
@@ -59,10 +60,10 @@ const ScreenColourDisplay = props => {
                     <h2 style={{color: secondary}}>Lorem ipsum dolor sit amet, sanctus appellantur cu per. Id cum errem timeam, ex nominavi.</h2>
                 </div>
                 <div className='action-btns'>
-                    <button style={{backgroundColor: accent, color: primary}} onClick={schemeStorageHandler}>
+                    <button style={{ backgroundColor: secondaryAccent ? secondaryAccent : accent, color: primary }} onClick={schemeStorageHandler}>
                         { savedScheme ? 'Delete Scheme' : 'Save Scheme' }
                     </button>
-                    <button style={{backgroundColor: 'rgba(0,0,0,0)', border: `solid 2px ${accent}`, color: accent}} onClick={schemeStorageHandler}>
+                    <button style={{backgroundColor: 'rgba(0,0,0,0)', border: secondaryAccent ? `solid 2px ${secondaryAccent}` : `solid 2px ${accent}`, color: secondaryAccent ? secondaryAccent : accent}} onClick={schemeStorageHandler}>
                         { savedScheme ? 'Delete Scheme' : 'Save Scheme' }
                     </button>
                 </div>
