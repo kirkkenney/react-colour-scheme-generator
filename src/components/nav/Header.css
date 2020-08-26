@@ -1,0 +1,13 @@
+.header {
+    width: 100%;
+    padding: 1rem;
+    background: rgb(50, 19, 124);
+    color: rgb(235, 228, 251);
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header div:first-child {
+    margin-right: 2rem; 
+}

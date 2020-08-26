@@ -1,48 +1,40 @@
 header {
-  width: 95%;
-  margin: 2rem auto 0 auto;
-}
-
-header input,
-header button {
-  display: inline-block;
-  width: 45%;
-  height: 2rem;
-  padding: 0;
-  border: none;
-  vertical-align: middle;
-}
-
-header input {
-  margin: 0 5% 0 0;
-}
-
-header button {
-  margin: 0 0 0 5%;
-}
-
-header button {
-  font-size: 1.1rem;
-}
-
-header select {
   width: 100%;
+}
+
+.input-controls {
+  text-align: center;
+}
+
+.input-controls > div {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin: auto;
+  align-items: center;
+  margin: 2rem auto;
+}
+
+.refresh {
+  font-size: 3.5rem;
+}
+
+.input-controls select {
+  width: 90%;
   padding: .5rem;
   font-size: 1rem;
   margin-top: 1rem;
   text-align: center;
+  background: rgb(127, 83, 228);
+  color: rgb(235, 229, 251);
 }
 
-header select option {
+.input-controls select option {
   font-size: 1rem;
 }
 
-.scheme-container {
+/* .scheme-container {
   margin: 1rem 0;
-}
-
-.colour-test {
-  color: rgb(123, 107, 245);
-}
+} */
 
 
