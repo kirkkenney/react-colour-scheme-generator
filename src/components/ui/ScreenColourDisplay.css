@@ -19,7 +19,7 @@
 }
 
 .menu-btn {
-    width: 15%;
+    width: 50px;
     height: 30px;
     display: flex;
     flex-direction: column;
@@ -89,4 +89,76 @@
     font-size: 1.1rem;
     padding: .75rem .5rem;
     border-radius: 6px;
+}
+
+@media only screen and (min-width: 760px) {
+    .screen-display {
+        top: -20%;
+    }
+
+    .menu-btn {
+        display: none;
+    }
+    
+    .hide-mob {
+        display: block;
+    }
+
+    .site-links {
+        width: 30%;
+    }
+
+    .site-links ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        list-style-type: none;
+    }
+
+    .site-links ul li {
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+
+    .screen-landing {
+        padding: 4rem 10% 2rem 10%;
+    }
+
+    .screen-landing-animate {
+        width: 60%;
+    }
+
+    .action-btns {
+        width: 50%;
+    }
+
+    .action-btns button {
+        cursor: pointer;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .site-links {
+        width: 25%;
+    }
+
+    .screen-landing-animate {
+        width: 40%;
+    }
+
+    .action-btns {
+        width: 40%;
+    }
+
+    .screen-landing h1 {
+        margin: 0 auto;
+        width: 90%;
+        font-size: 3rem;
+    }
+    
+    .screen-landing h2 {
+        width: 80%;
+        font-size: 1.6rem;
+    }
 }

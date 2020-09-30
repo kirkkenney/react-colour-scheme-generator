@@ -13,3 +13,10 @@
     cursor: pointer;
     transform: translate(-25%, -25%);
 }
+
+@media only screen and (min-width: 650px) {
+    .colour-input {
+        width: 3rem;
+        height: 3rem;
+    }
+}

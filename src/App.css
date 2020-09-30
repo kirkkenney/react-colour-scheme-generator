@@ -16,6 +16,7 @@ header {
 }
 
 .refresh {
+  cursor: pointer;
   font-size: 3.5rem;
 }
 
@@ -33,8 +34,40 @@ header {
   font-size: 1rem;
 }
 
-/* .scheme-container {
-  margin: 1rem 0;
-} */
+@media only screen and (min-width: 650px) {
+  .input-controls {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 2rem 1rem;
+  }
+
+  .input-controls select {
+  padding: 0 .5rem;
+  margin-top: 0;
+  }
+  
+  .input-controls > div {
+    width: 70%;
+    margin: 0;
+  }
+
+  .refresh {
+    font-size: 2.5rem;
+  }
+
+}
+
+@media only screen and (min-width: 850px) {
+  .input-controls {
+    margin: 2rem 4rem;
+  }
+}
+
+@media only screen and (min-width: 1120px) {
+  .input-controls {
+    margin: 2rem 6rem;
+  }
+}
 
 
